@@ -43,13 +43,23 @@ class Student extends Database
     public function getAllStudents() {
         $stmt = $this->connect()->query("SELECT * FROM student");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            var_dump($row);
-                print "<br>" . $row['id'] . "<br>" .
-                    $row['firstname'] . "<br>" .
-                    $row['lastname'] . "<br>" .
-                    $row['email'] . "<br>" .
-                    $row['level'];
-
+//            var_dump($row);
+                print "<table>
+                        <tr>
+                            <td>ID</td>
+                            <td>First Name</td>
+                            <td>Last Name</td>
+                            <td>Email</td>
+                            <td>Level</td>
+                        </tr>
+                        <tr>
+                            <td>" . $row['id'] . "</td>
+                            <td>" . $row['firstname'] ."</td>
+                            <td>" . $row['lastname'] . "</td>
+                            <td>" . $row['email'] . "</td>
+                            <td>" . $row['level'] . "</td>
+                        </tr>
+                        </table>";
         }
     }
 

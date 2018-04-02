@@ -8,7 +8,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registration Page</title>
+    <title>User Administration Page</title>
 </head>
 <body>
 <nav></nav>
