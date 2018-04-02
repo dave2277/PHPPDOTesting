@@ -43,12 +43,7 @@ class Student extends Database
     public function getAllStudents() {
         $stmt = $this->connect()->query("SELECT * FROM student");
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $uid = $row['id'];
-            $fname = $row['firstname'];
-            $lname = $row['lastname'];
-            $mail = $row['email'];
 
-            return ($uid, $fname, $lname, $mail);
         }
     }
 
