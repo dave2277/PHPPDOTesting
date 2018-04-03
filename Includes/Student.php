@@ -41,7 +41,8 @@ class Student extends Database
     }
 
     public function getAllStudents() {
-        $stmt = $this->connect()->query("SELECT * FROM student");
+    //Basic PDO Query using
+        $stmt = $this->connect()->query("SELECT * FROM students");
 
 
 
@@ -63,15 +64,23 @@ class Student extends Database
         //Use positional parameters
 
         //User Input
-        $userid = 1;
+        $userid = 2;
 
-        $sql = 'SELECT * FROM student WHERE id = ?';
+        $sql = 'SELECT * FROM students WHERE id = ?';
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute([$userid]);
         $students = $stmt->fetchAll();
-        var_dump($students);
+//        var_dump($students);
+        foreach ($students as $student) {
+        print '<table><tr>'
+            . '<td>' . $student->id .       '</td>'
+            . '<td>' . $student->firstname .'</td>'
+            . '<td>' . $student->lastname . '</td>'
+            . '<td>' . $student->email .    '</td>'
+            . '<td>' . $student->level .    '</td>'
+            . '</tr></table><br>';
+        }
 
-        //Use
     }
 
 
