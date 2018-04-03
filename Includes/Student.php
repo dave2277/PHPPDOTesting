@@ -59,4 +59,20 @@ class Student extends Database
         }
     }
 
+    public function preparedGetAllStudents() {
+        //Use positional parameters
+
+        //User Input
+        $userid = 1;
+
+        $sql = 'SELECT * FROM student WHERE id = ?';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute([$userid]);
+        $students = $stmt->fetchAll();
+        var_dump($students);
+
+        //Use
+    }
+
+
 }

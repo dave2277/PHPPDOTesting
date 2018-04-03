@@ -17,7 +17,7 @@
 <section>
     <?php
     $object = new Student();
-    echo $object->getAllStudents();
+    echo $object->preparedgetAllStudents();
     ?>
 </section>
 <footer></footer>
