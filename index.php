@@ -9,6 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>User Administration Page</title>
+    <link href="Includes/styles.css" rel="stylesheet">
 </head>
 <body>
 <nav></nav>
