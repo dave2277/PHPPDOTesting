@@ -1,6 +1,7 @@
 <?php
     include_once 'Includes/Database.php';
     include_once 'Includes/Student.php';
+    include_once 'Includes/SQLQueries.php';
 ?>
 
 
@@ -16,8 +17,18 @@
 <h1>List of Users</h1>
 <section>
     <?php
-    $object = new Student();
-    echo $object->search();
+    $object = new SQLQueries();
+    $students = $object->getbyStatus(1);
+
+    foreach ($students as $student) {
+        print '<table><tr>'
+            . '<td>' . $student->id . '</td>'
+            . '<td>' . $student->firstname . '</td>'
+            . '<td>' . $student->lastname . '</td>'
+            . '<td>' . $student->email . '</td>'
+            . '<td>' . $student->level . '</td>'
+            . '</tr></table><br>';
+    }
     ?>
 </section>
 <footer></footer>
