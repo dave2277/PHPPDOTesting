@@ -213,7 +213,7 @@ class Student extends Database
     }
 
     public function search() {
-        //Search for the snitch using 'like'
+        //Search using 'like'
 
         $search = "%snitch%";
         $sql = 'SELECT * FROM students WHERE email like :search';
