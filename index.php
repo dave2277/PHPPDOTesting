@@ -17,7 +17,7 @@
 <section>
     <?php
     $object = new Student();
-    echo $object->getRowCount();
+    echo $object->namedGetAllStudents();
     ?>
 </section>
 <footer></footer>

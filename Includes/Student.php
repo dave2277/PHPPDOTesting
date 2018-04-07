@@ -164,6 +164,25 @@ class Student extends Database
     }
 
     public function insert() {
+        //Pretend like these are coming from a form
+
+        $firstname = 'John';
+        $lastname = 'Gotti';
+        $email = 'snitchesgetstitches@yahoo.com';
+        $level = 'beginner';
+        $status = 1;
+
+        $sql = 'INSERT INTO students(firstname, lastname, email, level, status)
+                VALUES(:firstname, :lastname, :email, :level, :status)';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname,
+            'email' => $email, 'level' => $level, 'status' => $status]);
+
+        echo 'Post Added';
+    }
+
+
+    public function update() {
         
     }
 
