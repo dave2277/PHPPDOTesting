@@ -178,12 +178,24 @@ class Student extends Database
         $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname,
             'email' => $email, 'level' => $level, 'status' => $status]);
 
-        echo 'Post Added';
+        echo 'Student Added';
     }
 
 
     public function update() {
-        
+        //Update record three, set John Gotti to Lucky Luciano
+
+        $firstname = 'Lucky';
+        $lastname = 'Luciano';
+        $id = 3;
+
+        $sql = 'UPDATE students SET firstname = :firstname, lastname = :lastname
+        WHERE id = :id';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname, 'id' => $id]);
+
+        echo 'Student Updated';
+
     }
 
 }
