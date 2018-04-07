@@ -198,4 +198,19 @@ class Student extends Database
 
     }
 
+
+    public function delete() {
+        //Delete Record
+
+        $id = 3;
+
+        $sql = 'DELETE from students WHERE id = :id';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['id' => $id]);
+
+        echo 'Student deleted';
+
+    }
+
+
 }
