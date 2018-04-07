@@ -17,7 +17,7 @@
 <section>
     <?php
     $object = new Student();
-    echo $object->namedGetAllStudents();
+    echo $object->search();
     ?>
 </section>
 <footer></footer>

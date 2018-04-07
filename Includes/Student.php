@@ -212,5 +212,24 @@ class Student extends Database
 
     }
 
+    public function search() {
+        //Search for the snitch using 'like'
+
+        $search = "%snitch%";
+        $sql = 'SELECT * FROM students WHERE email like :search';
+        $stmt = $this->connect()->prepare($sql);
+        $stmt->execute(['search' => $search]);
+        $students = $stmt->fetchAll();
+
+        foreach ($students as $student) {
+            print '<table><tr>'
+                . '<td>' . $student->id . '</td>'
+                . '<td>' . $student->firstname . '</td>'
+                . '<td>' . $student->lastname . '</td>'
+                . '<td>' . $student->email . '</td>'
+                . '<td>' . $student->level . '</td>'
+                . '</tr></table><br>';
+        }
+    }
 
 }
