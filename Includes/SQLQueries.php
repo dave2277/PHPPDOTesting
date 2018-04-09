@@ -23,4 +23,10 @@ class SQLQueries extends Database
         return $students;
     }
 
+    public function delete($id) {
+        $sql = 'DELETE from students WHERE id = :id';
+        $stmt = $this->statement($sql);
+        $stmt->execute(['id' => $id]);
+    }
+
 }

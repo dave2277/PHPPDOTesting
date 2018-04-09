@@ -51,3 +51,12 @@
 <footer></footer>
 </body>
 </html>
+
+<?php
+if (isset($_POST['delete'])){
+    $object = new SQLQueries();
+    $object->delete($student->id);
+    header("Location: index.php");
+}
+
+?>
