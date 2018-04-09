@@ -47,4 +47,11 @@ class SQLQueries extends Database
             'email' => $email, 'level' => $level]);
     }
 
+    public function search($term) {
+        $sql = 'SELECT * from `students` WHERE firstname like :search
+                OR lastname LIKE :search OR email like :search';
+        $stmt = $this->statement($sql);
+        $stmt->execute(['search' => $term]);
+    }
+
 }
