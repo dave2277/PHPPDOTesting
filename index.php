@@ -34,10 +34,18 @@
                             . '<td>' . $student->lastname . '</td>'
                             . '<td>' . $student->email . '</td>'
                             . '<td>' . $student->level . '</td>'
-                            . '</tr>';
+                            . '<td> <form action="index.php" method="post">
+                                <button name="edit" type="submit" class="waves-effect waves-light btn-small">Edit</button>
+                               </td>
+                               <td>
+                                <button name="delete" type="submit" class="waves-effect waves-light btn-small">Delete</button>
+                               </form></td>
+                               </tr>';
                     }
                 ?>
-                </table><br>
+                    </table><br>
+                <form action="index.php" method="post">
+                    <button name="add" type="submit" class="waves-effect waves-light btn">Add New Student</button></form>
             </div>
     </div>
 <footer></footer>
