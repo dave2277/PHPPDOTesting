@@ -57,6 +57,8 @@ if (isset($_POST['delete'])){
     $object = new SQLQueries();
     $object->delete($student->id);
     header("Location: index.php");
+} elseif (isset($_POST['add'])){
+    header("Location: addnew.php");
 }
 
 ?>
