@@ -28,7 +28,6 @@ class SQLQueries extends Database
     }
 
     public function update($id, $firstname, $lastname, $email, $level) {
-
         $sql = 'UPDATE `students` SET firstname = :firstname, 
                   lastname = :lastname,
                   email = :email,
@@ -40,6 +39,8 @@ class SQLQueries extends Database
     }
 
     public function insert($firstname, $lastname, $email, $level) {
+        $this->validate();
+        if (!empty($this->errors)) { return false; }
         $sql = 'INSERT INTO `students` (firstname, lastname, email, level)
                 VALUES(:firstname, :lastname, :email, :level)';
         $stmt = $this->statement($sql);
