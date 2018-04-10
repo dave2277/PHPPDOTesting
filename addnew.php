@@ -62,16 +62,7 @@ if (isset($_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['leve
     $object = new SQLQueries();
     $object->insert($firstname, $lastname, $email, $level);
     header("Location: index.php");
-} else {
-    echo "You fucked up.";
-    ?> <pre>
-
-    <?php print_r($_POST); ?>
-    </pre>
-<?php }
-
-
-?>
+}
 
 
 

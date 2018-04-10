@@ -28,13 +28,12 @@
                 <table class="responsive-table">
                     <?php
                     foreach ($students as $student) {
-                        print '<tr>'
-                            . '<td>' . $student->id . '</td>'
+                        print '<form action="index.php" method="post"><tr>'
                             . '<td>' . $student->firstname . '</td>'
                             . '<td>' . $student->lastname . '</td>'
                             . '<td>' . $student->email . '</td>'
                             . '<td>' . $student->level . '</td>'
-                            . '<td> <form action="index.php" method="post">
+                            . '<td> 
                                 <button name="edit" type="submit" class="waves-effect waves-light btn-small">Edit</button>
                                </td>
                                <td>
