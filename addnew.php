@@ -19,26 +19,26 @@
         <form action="addnew.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input name="firstname" id="first_name" type="text" class="validate">
+                    <input name="required[firstname]" id="first_name" type="text" class="validate">
                     <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <input name="lastname" id="last_name" type="text" class="validate">
+                    <input name="required[lastname]" id="last_name" type="text" class="validate">
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input name="email" id="email" type="email" class="validate">
+                    <input name="required[email]" id="email" type="email" class="validate">
                     <label for="email">Email</label>
                 </div>
             </div>
             <label>Browser Select</label>
-            <select id="level" name="level" class="browser-default">
+            <select id="level" name="required[level]" class="browser-default">
                 <option value="" disabled selected>Choose your skill level</option>
-                <option name="level" value="1">Beginner</option>
-                <option name="level" value="2">Intermediate</option>
-                <option name="level" value="3">Advanced</option>
+                <option value="1">Beginner</option>
+                <option value="2">Intermediate</option>
+                <option value="3">Advanced</option>
             </select>
             <br>
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
@@ -51,13 +51,20 @@
 
 
 <?php
-//Add validation and error handling-- book has some examples
-if (isset($_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['level'])){
 
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $level = $_POST['level'];
+if (isset($_POST['required'])){
+    $required = $_POST['required'];
+    foreach ($required as $req) {
+        $req = trim($req);
+        if (!empty($req)){
+            print "Please fill out first name, last name, email, and level";
+        }
+    }
+
+    $firstname = $_POST['required']['firstname'];
+    $lastname = $_POST['required']['lastname'];
+    $email = $_POST['required']['email'];
+    $level = $_POST['required']['level'];
 
     $object = new SQLQueries();
     $object->insert($firstname, $lastname, $email, $level);
