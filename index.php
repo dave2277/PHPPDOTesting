@@ -59,6 +59,8 @@ if (isset($_POST['delete'])){
     header("Location: index.php");
 } elseif (isset($_POST['add'])){
     header("Location: addnew.php");
+} elseif (isset($_POST['edit'])){
+    header("Location: edit.php");
 }
 
 ?>

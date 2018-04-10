@@ -1,3 +1,8 @@
+<?php
+    include_once 'Includes/Database.php';
+    include_once 'Includes/SQLQueries.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,38 +16,62 @@
 <body>
 <div class="container">
     <div class="row">
-        <form class="col s12">
+        <form action="addnew.php" method="post" class="col s12">
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                    <input name="firstname" id="first_name" type="text" class="validate">
                     <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="last_name" type="text" class="validate">
+                    <input name="lastname" id="last_name" type="text" class="validate">
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
+                    <input name="email" id="email" type="email" class="validate">
                     <label for="email">Email</label>
                 </div>
             </div>
+            <label>Browser Select</label>
+            <select id="level" name="level" class="browser-default">
+                <option value="" disabled selected>Choose your skill level</option>
+                <option name="level" value="1">Beginner</option>
+                <option name="level" value="2">Intermediate</option>
+                <option name="level" value="3">Advanced</option>
+            </select>
+            <br>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            </button>
         </form>
     </div>
-    <label>Browser Select</label>
-    <select class="browser-default">
-        <option value="" disabled selected>Choose your skill level</option>
-        <option value="1">Beginner</option>
-        <option value="2">Intermediate</option>
-        <option value="3">Advanced</option>
-    </select>
-    <br>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    </button>
 </div>
 </body>
 </html>
+
+
+<?php
+//Add validation and error handling-- book has some examples
+if (isset($_POST['firstname'], $_POST['lastname'], $_POST['email'], $_POST['level'])){
+
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $level = $_POST['level'];
+
+    $object = new SQLQueries();
+    $object->insert($firstname, $lastname, $email, $level);
+    header("Location: index.php");
+} else {
+    echo "You fucked up.";
+    ?> <pre>
+
+    <?php print_r($_POST); ?>
+    </pre>
+<?php }
+
+
+?>
 
 
 
