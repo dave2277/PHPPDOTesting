@@ -1,6 +1,6 @@
 <?php
     include_once 'Includes/Database.php';
-    include_once 'Includes/SQLQueries.php';
+    include_once 'Includes/CreateStudent.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,16 +20,19 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input name="required[firstname]" id="first_name" type="text" class="validate">
+                    <?php if (isset($errors['firstname']))?>
                     <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
                     <input name="required[lastname]" id="last_name" type="text" class="validate">
+                    <?php if (isset($errors['lastname']))?>
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input name="required[email]" id="email" type="email" class="validate">
+                    <?php if (isset($errors['email']))?>
                     <label for="email">Email</label>
                 </div>
             </div>

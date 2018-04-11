@@ -1,46 +1,55 @@
 <?php
+include_once 'SQLQueries.php';
 
 class CreateStudent
 {
 
     public $firstname;
-    public $lastnmae;
+    public $lastname;
     public $email;
-    public $level;
+//    public $level;
 
-    public function createUser()
-    {
-        if (isset($_POST['required'])) {
-            $this->firstname = $_POST['required']['firstname'];
-            $this->lastnmae = $_POST['required']['lastname'];
-            $this->email = $_POST['required']['email'];
-            $this->level = $_POST['required']['level'];
-            $this->validate();
-        }
-    }
+
 
     public function validate()
     {
+        $errors = array();
 
-        if (empty($firstname)) {
-            $errors[] = "First name cannot be blank";
-            return false;
-        }
-        if (empty($lastname)) {
-            $errors[] = "Last name cannot be blank";
-            return false;
-        }
-        if (empty($email)) {
-            $errors[] = "Email cannot be blank";
-            return false;
-        }
-        if (empty($level)) {
-            $errors[] = "Level must be selected";
-            return false;
+        if (isset($_POST['required'])) {
+            $this->firstname = $_POST['required']['firstname'];
+            $this->lastname = $_POST['required']['lastname'];
+            $this->email = $_POST['required']['email'];
+//          $this->level = $_POST['required']['level'];
         }
 
-        $object = new SQLQueries();
-        $object->insert($firstname, $lastname, $email, $level);
-        header("Location: index.php");
+        if (strlen(trim($this->firstname)) === 0) {
+            $errors['firstname'] = "First name cannot be blank";
+            return false;
+        }
+        if (strlen(trim($this->lastname)) === 0) {
+            $errors['lastname'] = "Last name cannot be blank";
+            return false;
+        }
+        if (strlen(trim($this->email)) === 0) {
+            $errors['email'] = "Email cannot be blank";
+            return false;
+        }
+//        if (empty($level)) {
+//            $errors['level'] = "Level must be selected";
+//            return false;
+//        }
+
+        $this->createUser();
+    }
+
+    public function createUser()
+    {
+            $object = new SQLQueries();
+            $object->insert($this->firstname, $this->lastname, $this->email);
+            header("Location: index.php");
     }
 }
+
+
+    $object = new CreateStudent();
+    $object->validate();

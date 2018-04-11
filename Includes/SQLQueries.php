@@ -38,14 +38,12 @@ class SQLQueries extends Database
             'email' => $email, 'level' => $level]);
     }
 
-    public function insert($firstname, $lastname, $email, $level) {
-        $this->validate();
-        if (!empty($this->errors)) { return false; }
-        $sql = 'INSERT INTO `students` (firstname, lastname, email, level)
-                VALUES(:firstname, :lastname, :email, :level)';
+    public function insert($firstname, $lastname, $email) {
+        $sql = 'INSERT INTO `students` (firstname, lastname, email)
+                VALUES(:firstname, :lastname, :email)';
         $stmt = $this->statement($sql);
         $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname,
-            'email' => $email, 'level' => $level]);
+            'email' => $email]);
     }
 
     public function search($term) {
