@@ -25,7 +25,7 @@
                     $object = new SQLQueries();
                     $students = $object->getbyStatus(1);
                  ?>
-                <table class="responsive-table">
+                <table class="table-responsive">
                     <?php
                     foreach ($students as $student) {
                         print '<form action="index.php" method="post"><tr>'
@@ -34,12 +34,12 @@
                             . '<td>' . $student->email . '</td>'
                             . '<td>' . $student->level . '</td>'
                             . '<td> 
-                                <button name="edit" type="submit" class="waves-effect waves-light btn-small">Edit</button>
+                                <button name="edit" type="submit" class="btn-flat">Edit</button>
                                </td>
                                <td>
-                                <button name="delete" type="submit" class="waves-effect waves-light btn-small">Delete</button>
-                               </form></td>
-                               </tr>';
+                                <button name="delete" type="submit" class="btn-flat">Delete</button>
+                               </td>
+                               </tr></form>';
                     }
                 ?>
                     </table><br>
