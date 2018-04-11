@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link href="Includes/styles.css" rel="stylesheet">
+    <link href="../Includes/styles.css" rel="stylesheet">
 </head>
 <body>
 <div class="container">
@@ -20,19 +20,19 @@
             <div class="row">
                 <div class="input-field col s6">
                     <input name="required[firstname]" id="first_name" type="text" class="validate">
-                    <?php if (isset($errors['firstname']))?>
+                    <?php if (isset($errors['firstname'])) { echo $errors['firstname']; }?>
                     <label for="first_name">First Name</label>
                 </div>
                 <div class="input-field col s6">
                     <input name="required[lastname]" id="last_name" type="text" class="validate">
-                    <?php if (isset($errors['lastname']))?>
+                    <?php if (isset($errors['lastname'])) { echo $errors['lastname']; } ?>
                     <label for="last_name">Last Name</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
                     <input name="required[email]" id="email" type="email" class="validate">
-                    <?php if (isset($errors['email']))?>
+                    <?php if (isset($errors['email'])) { echo $errors['email']; }?>
                     <label for="email">Email</label>
                 </div>
             </div>

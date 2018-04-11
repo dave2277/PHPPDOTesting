@@ -1,7 +1,7 @@
 <?php
     ob_start();
     include_once 'Includes/Database.php';
-    include_once 'Includes/Student.php';
+    include_once 'Includes/PDOExamples.php';
     include_once 'Includes/SQLQueries.php';
 ?>
 
@@ -16,7 +16,7 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <link href="Includes/styles.css" rel="stylesheet">
+    <link href="../Includes/styles.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">

@@ -24,7 +24,7 @@ class CreateStudent
 
         if (strlen(trim($this->firstname)) === 0) {
             $errors['firstname'] = "First name cannot be blank";
-            return false;
+
         }
         if (strlen(trim($this->lastname)) === 0) {
             $errors['lastname'] = "Last name cannot be blank";
@@ -39,7 +39,12 @@ class CreateStudent
 //            return false;
 //        }
 
-        $this->createUser();
+        print_r($errors);
+
+        if (empty($errors)){
+            $this->createUser();
+        }
+
     }
 
     public function createUser()

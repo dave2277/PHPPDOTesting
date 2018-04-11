@@ -1,6 +1,6 @@
 <?php
 
-class Student extends Database
+class PDOExamples extends Database
 {
 
     private $firstName;
@@ -178,7 +178,7 @@ class Student extends Database
         $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname,
             'email' => $email, 'level' => $level, 'status' => $status]);
 
-        echo 'Student Added';
+        echo 'PDOExamples Added';
     }
 
 
@@ -194,7 +194,7 @@ class Student extends Database
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname, 'id' => $id]);
 
-        echo 'Student Updated';
+        echo 'PDOExamples Updated';
 
     }
 
@@ -208,7 +208,7 @@ class Student extends Database
         $stmt = $this->connect()->prepare($sql);
         $stmt->execute(['id' => $id]);
 
-        echo 'Student deleted';
+        echo 'PDOExamples deleted';
 
     }
 
