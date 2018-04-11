@@ -1,4 +1,5 @@
 <?php
+    ob_start();
     include_once 'Includes/Database.php';
     include_once 'Includes/Student.php';
     include_once 'Includes/SQLQueries.php';

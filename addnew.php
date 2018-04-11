@@ -1,23 +1,6 @@
 <?php
     include_once 'Includes/Database.php';
     include_once 'Includes/SQLQueries.php';
-    $errors = [];
-
-    echo display_errors($errors);
-    function display_errors($errors=array()) {
-    $output = '';
-    if(!empty($errors)) {
-        $output .= "<div class=\"errors\">";
-        $output .= "Please fix the following errors:";
-        $output .= "<ul>";
-        foreach($errors as $error) {
-            $output .= "<li>" . $error . "</li>";
-        }
-        $output .= "</ul>";
-        $output .= "</div>";
-    }
-    return $output;
-}
 ?>
 
 <!DOCTYPE html>
@@ -67,41 +50,6 @@
 </html>
 
 
-<?php
 
-    function validate(){
-        if(empty($firstname)){
-            $errors[] = "First name cannot be blank";
-            return false;
-        }
-        if(empty($lastname)){
-            $errors[] = "Last name cannot be blank";
-            return false;
-        }
-        if(empty($email)){
-            $errors[] = "Email cannot be blank";
-            return false;
-        }
-        if(empty($level)){
-            $errors[] = "Level must be selected";
-            return false;
-        }
-
-        $object = new SQLQueries();
-        $object->insert($firstname, $lastname, $email, $level);
-        header("Location: index.php");
-    }
-
-if (isset($_POST['required'])) {
-    $firstname = $_POST['required']['firstname'];
-    $lastname = $_POST['required']['lastname'];
-    $email = $_POST['required']['email'];
-//    $level = $_POST['required']['level'];
-
-    validate();
-}
-
-
-?>
 
 
