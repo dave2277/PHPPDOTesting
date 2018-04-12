@@ -37,16 +37,18 @@
                     <label for="email">Email</label>
                 </div>
             </div>
-            <label>Browser Select</label>
-            <select id="level" name="required[level]" class="browser-default">
-                <option value="" disabled selected>Choose your skill level</option>
-                <option value="1">Beginner</option>
-                <option value="2">Intermediate</option>
-                <option value="3">Advanced</option>
+            <div>
+            <label for="level">Choose your skill level</label>
+            <select id="level" name="required[level]" class="browser-default" selected="none">
+                <option selected="selected" value="none">Choose your skill level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
             </select>
             <br>
             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
             </button>
+            </div>
         </form>
     </div>
 </div>

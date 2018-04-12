@@ -6,18 +6,21 @@ class CreateStudent
     public $firstname;
     public $lastname;
     public $email;
-//    public $level;
+    public $level;
 
     public function validate()
     {
         $errors = array();
 
+        var_dump($_POST['required']);
+
         if (isset($_POST['required'])) {
             $this->firstname = $_POST['required']['firstname'];
             $this->lastname = $_POST['required']['lastname'];
             $this->email = $_POST['required']['email'];
-//          $this->level = $_POST['required']['level'];
+            $this->level = $_POST['required']['name'];
         }
+
 
         if (strlen(trim($this->firstname)) === 0) {
             $errors['firstname'] = "First name cannot be blank";
@@ -31,27 +34,30 @@ class CreateStudent
             $errors['email'] = "Email cannot be blank";
 
         }
-//        if (empty($level)) {
-//            $errors['level'] = "Level must be selected";
-//            return false;
-//        }
+        if ($this->level = "none") {
+            $errors['level'] = "Level must be selected";
+        }
 
-//        print_r($errors);
 
         if (empty($errors)){
             $this->createUser();
-        } else {
-                foreach ($errors as $error){
-                    echo $error;
-            }
-        }
+        } else { ?>
+            <div class="container" style="color: darkred; margin-top: 20px; margin-left: 200px;" ><ul>
+                <h5>Please fix the following errors: </h5>
+                    <?php foreach ($errors as $error){ ?>
+                <li>
+                   <?php echo $error; ?>
+                </li>
+            <?php } ?>
+            </ul></div>
+        <?php }
 
     }
 
     public function createUser()
     {
             $object = new SQLQueries();
-            $object->insert($this->firstname, $this->lastname, $this->email);
+            $object->insert($this->firstname, $this->lastname, $this->email, $this->level);
             header("Location: index.php");
     }
 }

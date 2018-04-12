@@ -40,12 +40,12 @@ class SQLQueries extends Database
             'email' => $email, 'level' => $level]);
     }
 
-    public function insert($firstname, $lastname, $email) {
-        $sql = 'INSERT INTO `students` (firstname, lastname, email)
-                VALUES(:firstname, :lastname, :email)';
+    public function insert($firstname, $lastname, $email, $level) {
+        $sql = 'INSERT INTO `students` (firstname, lastname, email, level)
+                VALUES(:firstname, :lastname, :email, :level)';
         $stmt = $this->statement($sql);
         $stmt->execute(['firstname' => $firstname, 'lastname' => $lastname,
-            'email' => $email]);
+            'email' => $email, 'level' => $level]);
     }
 
     public function search($term) {
