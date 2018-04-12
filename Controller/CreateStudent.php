@@ -12,17 +12,17 @@ class CreateStudent
     {
         $errors = array();
 
-        var_dump($_POST['required']);
+
 
         if (isset($_POST['required'])) {
-            $this->firstname = $_POST['required']['firstname'];
-            $this->lastname = $_POST['required']['lastname'];
-            $this->email = $_POST['required']['email'];
-            $this->level = $_POST['required']['name'];
+           $_POST['required']['firstname'] = $this->firstname;
+           $_POST['required']['lastname'] = $this->lastname;
+           $_POST['required']['email'] = $this->email;
+           $_POST['required']['level'] = $this->level;
         }
 
 
-        if (strlen(trim($this->firstname)) === 0) {
+        if (strlen(trim( $_POST['required']['firstname'])) === 0) {
             $errors['firstname'] = "First name cannot be blank";
 
         }
@@ -34,9 +34,10 @@ class CreateStudent
             $errors['email'] = "Email cannot be blank";
 
         }
-        if ($this->level = "none") {
+        if ($this->level == "none") {
             $errors['level'] = "Level must be selected";
         }
+
 
 
         if (empty($errors)){
@@ -63,6 +64,7 @@ class CreateStudent
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    var_dump($_POST['required']);
     $object = new CreateStudent();
     $object->validate();
 }
