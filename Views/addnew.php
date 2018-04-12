@@ -38,7 +38,7 @@
                 </div>
             </div>
             <div>
-            <label for="level">Choose your skill level</label>
+            <label for="level">Skill level</label>
             <select id="level" name="required[level]" class="browser-default" selected="none">
                 <option selected="selected" value="none">Choose your skill level</option>
                 <option value="beginner">Beginner</option>
