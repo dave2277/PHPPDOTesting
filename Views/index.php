@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>List of Students</h1>
+        <h1>List of Gansters</h1>
             <div class="section">
                 <?php
                     $object = new SQLQueries();
