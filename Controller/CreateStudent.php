@@ -1,15 +1,12 @@
 <?php
-include_once 'SQLQueries.php';
+include_once '../Models/SQLQueries.php';
 
 class CreateStudent
 {
-
     public $firstname;
     public $lastname;
     public $email;
 //    public $level;
-
-
 
     public function validate()
     {
@@ -28,21 +25,25 @@ class CreateStudent
         }
         if (strlen(trim($this->lastname)) === 0) {
             $errors['lastname'] = "Last name cannot be blank";
-            return false;
+
         }
         if (strlen(trim($this->email)) === 0) {
             $errors['email'] = "Email cannot be blank";
-            return false;
+
         }
 //        if (empty($level)) {
 //            $errors['level'] = "Level must be selected";
 //            return false;
 //        }
 
-        print_r($errors);
+//        print_r($errors);
 
         if (empty($errors)){
             $this->createUser();
+        } else {
+                foreach ($errors as $error){
+                    echo $error;
+            }
         }
 
     }
@@ -55,6 +56,8 @@ class CreateStudent
     }
 }
 
-
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $object = new CreateStudent();
     $object->validate();
+}
+

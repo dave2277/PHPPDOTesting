@@ -5,6 +5,8 @@
  * Date: 4/7/18
  * Time: 1:59 PM
  */
+include_once '../Includes/Database.php';
+
 
 class SQLQueries extends Database
 {

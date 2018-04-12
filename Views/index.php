@@ -1,8 +1,7 @@
 <?php
     ob_start();
-    include_once 'Includes/Database.php';
-    include_once 'Includes/PDOExamples.php';
-    include_once 'Includes/SQLQueries.php';
+    include_once '../Includes/Database.php';
+    include_once '../Models/SQLQueries.php';
 ?>
 
 
