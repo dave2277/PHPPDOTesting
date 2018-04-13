@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: davidgray
- * Date: 4/7/18
- * Time: 1:59 PM
- */
 include_once '../Includes/Database.php';
 
 
@@ -25,6 +19,12 @@ class SQLQueries extends Database
 
     public function delete($id) {
         $sql = 'DELETE from students WHERE id = :id';
+        $stmt = $this->statement($sql);
+        $stmt->execute(['id' => $id]);
+    }
+
+    public function getOne($id) {
+        $sql = 'SELECT firstname, lastname, email, level from students WHERE id = :id';
         $stmt = $this->statement($sql);
         $stmt->execute(['id' => $id]);
     }

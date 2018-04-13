@@ -2,6 +2,7 @@
     ob_start();
     include_once '../Includes/Database.php';
     include_once '../Models/SQLQueries.php';
+    include_once '../Controller/EditStudent.php';
 ?>
 
 
@@ -59,6 +60,8 @@ if (isset($_POST['delete'])){
 } elseif (isset($_POST['add'])){
     header("Location: addnew.php");
 } elseif (isset($_POST['edit'])){
+    $object = new EditStudent();
+    $object->populate($student->id);
     header("Location: edit.php");
 }
 
